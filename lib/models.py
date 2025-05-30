@@ -19,3 +19,14 @@ class Transaction(Base):
             f"<Transaction(description='{self.description}', "
             f"amount={self.amount}, category='{self.category}', date={self.date})>"
         )
+class Budget(Base):
+    __tablename__ = 'budgets'
+
+    id = Column(Integer, primary_key=True)
+    category = Column(String, nullable=False)
+    amount = Column(Float, nullable=False)
+    month = Column(String, nullable=False)  # e.g. "2024-06"
+
+    def __repr__(self):
+        return f"<Budget(category='{self.category}', amount={self.amount}, month='{self.month}')>"
+
